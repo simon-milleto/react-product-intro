@@ -387,13 +387,17 @@ var ReactUserTour = function (_Component) {
       var tooltipStyle = _extends({}, this.props.style, { width: this.width, height: this.height, pointerEvents: "auto" });
 
       var maskPosition = this.getMaskPositionAndDimensions({ selector: currentTourStep.selector });
-      var maskStyle = maskPosition ? Object.assign({
-        position: "absolute",
-        left: maskPosition.left,
-        top: maskPosition.top + window.pageYOffset,
-        width: maskPosition.width,
-        height: maskPosition.height
-      }, this.getMaskStyle({ selector: currentTourStep.selector })) : {};
+      var maskStyle = {};
+
+      if (maskPosition) {
+        maskStyle = Object.assign({
+          position: "absolute",
+          left: maskPosition.left,
+          top: maskPosition.top + window.pageYOffset,
+          width: maskPosition.width,
+          height: maskPosition.height
+        }, this.getMaskStyle({ selector: currentTourStep.selector }), this.props.maskStyle || {});
+      }
 
       return _react2.default.createElement(
         "div",
