@@ -203,6 +203,49 @@ export default class ReactUserTour extends Component {
       elPos.left += horizontalOffset;
       elPos.top += verticalOffset;
 
+      // prevent the tooltip to be too much on the left
+      if (elPos.left < 0) {
+        elPos.left = 10;
+        if (elPos.positioned === 'top') {
+          elPos.positioned = 'topRight';
+        } else if (elPos.positioned === 'bottom') {
+          elPos.positioned = 'bottomRight';
+        }
+      }
+
+      // prevent the tooltip to be too much on the right
+      if (elPos.left + tourElWidth > windowWidth) {
+        elPos.left = windowWidth - tourElWidth - 10;
+
+        if (elPos.positioned === 'top') {
+          elPos.positioned = 'topLeft';
+        } else if (elPos.positioned === 'bottom') {
+          elPos.positioned = 'bottomLeft';
+        }
+      }
+
+      // prevent the tooltip to be too much on the top
+      if (elPos.top < 0) {
+        elPos.top = 10;
+
+        if (elPos.positioned === 'left') {
+          elPos.positioned = 'bottomLeft';
+        } else if (elPos.positioned === 'right') {
+          elPos.positioned = 'bottomRight';
+        }
+      }
+
+      // prevent the tooltip to be too much on the bottom
+      if (elPos.top + tourElHeight > windowHeight) {
+        elPos.top = windowHeight - tourElHeight - 10;
+
+        if (elPos.positioned === 'left') {
+          elPos.positioned = 'topLeft';
+        } else if (elPos.positioned === 'right') {
+          elPos.positioned = 'topRight';
+        }
+      }
+
       this.prevPos = elPos;
       return elPos;
     }
