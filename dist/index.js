@@ -72,8 +72,8 @@ var ReactUserTour = function (_Component) {
     _this.width = _this.props.width;
     _this.height = _this.props.height;
 
-    if (_this.width > window.innerWidth || window.innerWidth - _this.width < 2 * defaultPadding) {
-      _this.width = window.innerWidth - defaultPadding * 2; // Set padding on smaller screens
+    if (_this.width > _this.props.windowWidth || _this.props.windowWidth - _this.width < 2 * defaultPadding) {
+      _this.width = _this.props.windowWidth - defaultPadding * 2; // Set padding on smaller screens
     }
     return _this;
   }
@@ -120,10 +120,14 @@ var ReactUserTour = function (_Component) {
           _ref3$horizontalOffse = _ref3.horizontalOffset,
           horizontalOffset = _ref3$horizontalOffse === undefined ? 0 : _ref3$horizontalOffse,
           _ref3$verticalOffset = _ref3.verticalOffset,
-          verticalOffset = _ref3$verticalOffset === undefined ? 0 : _ref3$verticalOffset;
+          verticalOffset = _ref3$verticalOffset === undefined ? 0 : _ref3$verticalOffset,
+          _ref3$windowHeight = _ref3.windowHeight,
+          windowHeight = _ref3$windowHeight === undefined ? 0 : _ref3$windowHeight,
+          _ref3$windowWidth = _ref3.windowWidth,
+          windowWidth = _ref3$windowWidth === undefined ? 0 : _ref3$windowWidth;
 
-      var windowHeight = window.innerHeight;
-      var windowWidth = window.innerWidth;
+      // const windowHeight = window.innerHeight;
+      // const windowWidth = window.innerWidth;
       var el = document.querySelector(selector);
       if (el) {
         var elPosition = el ? el.getBoundingClientRect() : {};
@@ -326,6 +330,8 @@ var ReactUserTour = function (_Component) {
       }
 
       var stepPosition = this.getStepPosition({
+        windowHeight: this.props.windowHeight,
+        windowWidth: this.props.windowWidth,
         selector: currentTourStep.selector,
         tourElWidth: this.width,
         tourElHeight: this.height,
@@ -476,6 +482,8 @@ exports.default = ReactUserTour;
 
 
 ReactUserTour.defaultProps = {
+  windowWidth: window.innerWidth,
+  windowHeight: window.innerHeight,
   width: 350,
   height: 150,
   style: {

@@ -24,8 +24,8 @@ export default class ReactUserTour extends Component {
     this.width = this.props.width
     this.height = this.props.height
 
-    if (this.width > window.innerWidth || window.innerWidth - this.width < 2*defaultPadding) {
-      this.width = window.innerWidth - (defaultPadding*2) // Set padding on smaller screens
+    if (this.width > this.props.windowWidth || this.props.windowWidth - this.width < 2*defaultPadding) {
+      this.width = this.props.windowWidth - (defaultPadding*2) // Set padding on smaller screens
     }
   }
 
@@ -63,10 +63,12 @@ export default class ReactUserTour extends Component {
     overridePos,
     margin,
     horizontalOffset = 0,
-    verticalOffset = 0
+    verticalOffset = 0,
+    windowHeight = 0,
+    windowWidth = 0
   }) {
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
+    // const windowHeight = window.innerHeight;
+    // const windowWidth = window.innerWidth;
     const el = document.querySelector(selector);
     if (el) {
       let elPosition = el ? el.getBoundingClientRect() : {};
@@ -281,6 +283,8 @@ export default class ReactUserTour extends Component {
     }
 
     const stepPosition = this.getStepPosition({
+      windowHeight: this.props.windowHeight,
+      windowWidth: this.props.windowWidth,
       selector: currentTourStep.selector,
       tourElWidth: this.width,
       tourElHeight: this.height,
@@ -439,6 +443,8 @@ export default class ReactUserTour extends Component {
 }
 
 ReactUserTour.defaultProps = {
+  windowWidth: window.innerWidth,
+  windowHeight: window.innerHeight,
   width: 350,
   height: 150,
   style: {
