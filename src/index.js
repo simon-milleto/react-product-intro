@@ -49,9 +49,8 @@ export default class ReactUserTour extends Component {
     if (el) {
       const elementStyle = el ? window.getComputedStyle(el) : null;
       return {
-        boxShadow: "0px 0px 0px " + (Math.max(document.body.clientWidth, document.body.clientHeight) * 2) + "px #222326",
-        opacity: 0.5,
-        borderRadius: elementStyle ? elementStyle.getPropertyValue('border-radius') : 0
+        boxShadow: "0px 0px 0px " + Math.max(document.body.clientWidth, document.body.clientHeight) + "px #222326",
+        opacity: 0.5
       }
     }
   }
