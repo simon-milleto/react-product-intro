@@ -37,10 +37,24 @@ export default class ReactUserTour extends Component {
   }
 
   getMaskPositionAndDimensions({ selector }) {
+    const root = document.querySelector(this.props.rootSelector);
     const el = document.querySelector(selector);
-    if (el) {
-      const position = el ? el.getBoundingClientRect() : {};
-      return position
+    if (root && el) {
+      const rootPosition = root.getBoundingClientRect();
+      const position = el.getBoundingClientRect();
+
+      const resultPosition = {
+        top: position.top - rootPosition.top,
+        left: position.left - rootPosition.left,
+        bottom: (position.top - rootPosition.top) + position.height,
+        right: (position.left - rootPosition.left) + position.width,
+        x: position.x - rootPosition.x,
+        y: position.y - rootPosition.y,
+        width: position.width,
+        height: position.height
+      };
+
+      return resultPosition
     }
   }
 
@@ -66,11 +80,11 @@ export default class ReactUserTour extends Component {
     windowHeight = 0,
     windowWidth = 0
   }) {
-    // const windowHeight = window.innerHeight;
-    // const windowWidth = window.innerWidth;
     const el = document.querySelector(selector);
-    if (el) {
+    const root = document.querySelector(this.props.rootSelector);
+    if (el && root) {
       let elPosition = el ? el.getBoundingClientRect() : {};
+      let rootPosition = root.getBoundingClientRect();
 
       const isElementBelowViewBox = viewBoxHelpers.isElementBelowViewBox(windowHeight, elPosition.top);
       const isElementAboveViewBox = viewBoxHelpers.isElementAboveViewBox(elPosition.bottom);
@@ -85,6 +99,17 @@ export default class ReactUserTour extends Component {
       let elPos;
 
       // console.log('overridePos', overridePos)
+
+      elPosition = {
+        top: elPosition.top - rootPosition.top,
+        left: elPosition.left - rootPosition.left,
+        bottom: (elPosition.top - rootPosition.top) + elPosition.height,
+        right: (elPosition.left - rootPosition.left) + elPosition.width,
+        width: elPosition.width,
+        height: elPosition.height,
+        x: elPosition.x - rootPosition.x,
+        y: elPosition.y - rootPosition.y
+      };
 
       if (overridePos && positions[overridePos]) {
         elPos = positions[overridePos]({
@@ -442,6 +467,7 @@ export default class ReactUserTour extends Component {
 }
 
 ReactUserTour.defaultProps = {
+  rootSelector: 'body',
   windowWidth: window.innerWidth,
   windowHeight: window.innerHeight,
   width: 350,
