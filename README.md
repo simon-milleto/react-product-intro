@@ -103,6 +103,9 @@ Boolean to disable the showing of the steps counter.
 #### `hideBeacon`
 Boolean to disable the showing of the beacon.
 
+#### `maskStyle`
+Optional style for the mask.
+
 ### Use
 
 ```js
