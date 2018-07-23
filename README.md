@@ -1,11 +1,17 @@
 This is an upgraded version of https://github.com/socialtables/react-user-tour
 
+## Improvements
+- The mask uses the same border-radius than the target.
+- Compute the step position not only using the target element position inside its parent but also the position of the parent in the whole web page.
+- Prevent the tooltip to go outside of the screen.
+- Add "maskStyle" props.
+
 # React User Tour
 
 A component that allows you to give a user a guided tour around your application. <a href="http://socialtables.github.io/react-user-tour/demo/index.html">Outdated Demo!</a>
 
 ### Install
-` npm install react-product-intro`
+` npm install react-application-tour`
 
 ###  Props
 

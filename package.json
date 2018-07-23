@@ -1,7 +1,7 @@
 {
-  "name": "react-product-intro",
+  "name": "react-application-tour",
   "version": "3.0.4",
-  "description": "web application product intro tour guide for the first time visitors",
+  "description": "Web application user tour for Reactjs.",
   "main": "dist/index.js",
   "browserify": {
     "transform": [
@@ -30,10 +30,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rudza/react-product-intro.git"
+    "url": "https://github.com/wemap/react-product-intro.git"
   },
   "bugs": {
-    "url": "https://github.com/rudza/react-product-intro/issues"
+    "url": "https://github.com/wemap/react-product-intro/issues"
   },
   "homepage": "",
   "keywords": [
@@ -41,6 +41,8 @@
     "user",
     "tour",
     "user-tour",
+    "application-tour",
+    "application-guide",
     "tour-guide",
     "guide",
     "joyride",
@@ -51,7 +53,13 @@
     "intro",
     "application"
   ],
-  "author": "Social Tables",
+  "author": "Wemap",
+  "contributors": [
+    {
+      "name": "Wemap",
+      "email": "contact@getwemap.com"
+    }
+  ],
   "license": "Apache-2.0",
   "dependencies": {
     "raf": "^3.4.0",
