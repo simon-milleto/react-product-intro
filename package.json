@@ -1,7 +1,7 @@
 {
-  "name": "react-application-tour",
-  "version": "3.0.4",
-  "description": "Web application user tour for Reactjs.",
+  "name": "react-product-intro",
+  "version": "3.0.5",
+  "description": "web application product intro tour guide for the first time visitors",
   "main": "dist/index.js",
   "browserify": {
     "transform": [
