@@ -434,7 +434,7 @@ export default class ReactUserTour extends Component {
         {
           position: "absolute",
           left: maskPosition.left,
-          top: maskPosition.top + window.pageYOffset,
+          top: maskPosition.top,
           width: maskPosition.width,
           height: maskPosition.height
         },

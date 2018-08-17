@@ -13,7 +13,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.right + margin),
-			top: Math.floor(position.top + window.pageYOffset - (tourElHeight - position.height) / 2),
+			top: Math.floor(position.top - (tourElHeight - position.height) / 2),
 			positioned: "right"
 		};
 	},
@@ -25,7 +25,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.left - margin - tourElWidth),
-			top: Math.floor(position.top + window.pageYOffset - (tourElHeight - position.height) / 2),
+			top: Math.floor(position.top - (tourElHeight - position.height) / 2),
 			positioned: "left"
 		};
 	},
@@ -38,7 +38,7 @@ var positions = {
 
 		var pos = {
 			left: Math.floor(position.left - (tourElWidth - position.width) / 2),
-			top: Math.floor(position.top + window.pageYOffset - margin - tourElHeight - arrowSize),
+			top: Math.floor(position.top - margin - tourElHeight - arrowSize),
 			positioned: "top"
 		};
 		if (pos.left + tourElWidth > windowWidth) {
@@ -55,7 +55,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.left + margin - tourElWidth),
-			top: Math.floor(position.top + window.pageYOffset - margin - tourElHeight - arrowSize),
+			top: Math.floor(position.top - margin - tourElHeight - arrowSize),
 			positioned: "topLeft"
 		};
 	},
@@ -67,7 +67,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.right - arrowSize * 2),
-			top: Math.floor(position.top + window.pageYOffset - margin - tourElHeight - arrowSize),
+			top: Math.floor(position.top - margin - tourElHeight - arrowSize),
 			positioned: "topRight"
 		};
 	},
@@ -80,7 +80,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.left - (tourElWidth - position.width) / 2),
-			top: Math.floor(position.top + window.pageYOffset + margin + offsetHeight + arrowSize),
+			top: Math.floor(position.top + margin + offsetHeight + arrowSize),
 			positioned: "bottom"
 		};
 	},
@@ -93,7 +93,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.left + margin - tourElWidth),
-			top: Math.floor(position.top + window.pageYOffset + margin + offsetHeight + arrowSize),
+			top: Math.floor(position.top + margin + offsetHeight + arrowSize),
 			positioned: "bottomLeft"
 		};
 	},
@@ -105,7 +105,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.left + margin),
-			top: Math.floor(position.top + window.pageYOffset + margin + offsetHeight + arrowSize),
+			top: Math.floor(position.top + margin + offsetHeight + arrowSize),
 			positioned: "bottomRight"
 		};
 	},
@@ -118,7 +118,7 @@ var positions = {
 
 		return {
 			left: Math.floor(position.left + (position.width - tourElWidth) / 2),
-			top: Math.floor(position.top + margin + window.pageYOffset),
+			top: Math.floor(position.top + margin),
 			positioned: "ontop"
 		};
 	}

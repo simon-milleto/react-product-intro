@@ -466,7 +466,7 @@ var ReactUserTour = function (_Component) {
         maskStyle = Object.assign({
           position: "absolute",
           left: maskPosition.left,
-          top: maskPosition.top + window.pageYOffset,
+          top: maskPosition.top,
           width: maskPosition.width,
           height: maskPosition.height
         }, this.getMaskStyle({ selector: currentTourStep.selector }), this.props.maskStyle || {});
